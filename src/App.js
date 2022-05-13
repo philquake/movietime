@@ -11,6 +11,12 @@ const API_URL = "http://www.omdbapi.com?apikey=db763ea3"
 const App = () => {
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState([]);
+
+    /**
+     * When the user types in the search box, the searchMovies function is called, which fetches the
+     * data from the API and sets the movies state to the data that is returned.
+     * @param title - The title of the movie you want to search for.
+     */
     const searchMovies = async (title) => {
         const response = await fetch(`${API_URL}&s=${title}`);
         const data = await response.json();
@@ -18,9 +24,9 @@ const App = () => {
         setMovies(data.Search);
     }
 
-    useEffect(() => {
-        searchMovies('Pacific Rim')
-    }, []);
+    // useEffect(() => {
+    //     searchMovies('Pacific Rim')
+    // }, []);
 
     return (
         <div className="app">
