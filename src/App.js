@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-import MovieCard from './MovieCard.jsx'
+import MovieCard from './component/MovieCard.js'
 import './App.css';
 import SearchIcon from "./search.svg";
 //db763ea3
@@ -32,6 +32,9 @@ const App = () => {
         <div className="app">
             <h1>BlockGuster</h1>
 
+           {/* This is the search bar. When the user clicks on the search icon, the searchMovies function is
+           called, which fetches the data from the API and sets the movies state to the data that is
+           returned. */}
             <div className="search">
                 <input
                     placeholder="Search for movies"
@@ -45,6 +48,8 @@ const App = () => {
                 />
             </div>
 
+           {/*Checking if the movies array is empty or not. If it is empty, it will display the "No
+           Movies Found" message. If it is not empty, it will display the movies. */}
             {movies?.length > 0 
                 ? (
                     <div className="containter">
